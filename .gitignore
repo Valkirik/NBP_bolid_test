@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtusl env
+.venv/
+.env/
+
+# Django
+*.log
+db.sqlite3
+media/
+
+# IDE
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# Pytest / Coverage
+.pytest_cache/
+.covetage
+htmlcov/
+
+# Migrations cache
+*/migrations/__pycahe__/
