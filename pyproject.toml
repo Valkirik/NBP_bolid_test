@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "poetry install"
+name = "nbp_bolid"
 version = "0.1.0"
 description = ""
 authors = ["Valery <valkirik1995@mail.ru>"]
@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 django = "^5.2.6"
-psycopg2 = "^2.9.10"
+psycopg2-binary = "^2.9.10"
 djangorestframework = "^3.16.1"
 django-filter = "^25.1"
 

@@ -1,3 +1,4 @@
+
 from .models import Sensor, Event
 from .serializers import SensorSerializer, EventSerializer
 from rest_framework import permissions, viewsets, status
