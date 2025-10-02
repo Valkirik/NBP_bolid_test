@@ -1,13 +1,25 @@
+from django.contrib.admin import action
+from django.core.serializers import serialize
+
 from .models import Sensor, Event
 from .serializers import SensorSerializer, EventSerializer
 from rest_framework import permissions, viewsets
 from rest_framework import generics
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 # CRUD
 class SensorViewSet(viewsets.ModelViewSet):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
     permission_classes = [permissions.AllowAny]
+
+    @action(detail=True, methods=["get"])
+    def events(self, request, pk=None):
+        sensor = self.get_object()
+        events = Event.objects.filter(sensor=sensor)
+        serializer= EventSerializer(events, many=True)
+        return Response(serializer.data)
 
 
 class EventViewSet(viewsets.ModelViewSet):
