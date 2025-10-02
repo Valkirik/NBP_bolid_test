@@ -53,12 +53,20 @@ class EventViewSet(viewsets.ModelViewSet):
             temperature = norm(item.get("temperature"))
             humidity = norm(item.get("humidity"))
 
+
             # we check if a sensor exists and if there are at least one value (temperature or humidity)
             if sensor_id not in valid_sensors:
                 skipped += 1
                 continue
             if temperature is None and humidity is None:
                 skipped +=1
+                continue
+            if Event.objects.filter(
+            sensor_id=sensor_id,
+            temperature=temperature,
+            humidity=humidity,
+            ).exists():
+                skipped += 1
                 continue
 
             # download and creat new events (that have passed)
