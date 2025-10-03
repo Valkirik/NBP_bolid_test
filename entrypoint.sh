@@ -1,0 +1,1 @@
+cd nbp_bolid; python manage.py migrate; python manage.py runserver 0.0.0.0:8000
