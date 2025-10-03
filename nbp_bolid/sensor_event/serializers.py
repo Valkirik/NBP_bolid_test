@@ -1,6 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 
-from .models import Sensor, Event
+from .models import Event, Sensor
+
 
 class SensorSerializer(ModelSerializer):
     class Meta:
@@ -12,4 +13,3 @@ class EventSerializer(ModelSerializer):
     class Meta:
         model = Event
         fields = "__all__"
-
